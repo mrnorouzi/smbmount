@@ -96,7 +96,7 @@ cat mount-points | while read mntp; do
 	if [[ ! "$a" =~ ^#.* ]]; then
 		mntdir="/mnt/"$(echo $mntp|sed 's/.*\///g')
 		mkdir -p $mntdir
-		printf "%s\t%s\tcifs\tuid=%s,credentials=/root/smb.cred 0 0" $mntp $mntdir $lusername >> /etc/fstab
+		printf "%s\t%s\tcifs\tuid=%s,credentials=/root/smb.cred 0 0\n" $mntp $mntdir $lusername >> /etc/fstab
 	fi
 done
 echo >> /etc/fstab
